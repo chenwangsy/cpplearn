@@ -4,31 +4,26 @@
  * @Author: CWSY
  * @Date: 2020-11-14 11:41:38
  * @LastEditors: sueRimn
- * @LastEditTime: 2021-02-01 22:47:14
+ * @LastEditTime: 2021-02-03 22:47:31
  */
-#include "mutithread3.h"
 
+#include "friend_class.h"
 
 
 
 int main()
 {   
-    SensorRawmsg *p_rawmsg1 = new SensorRawmsg;
-    SensorRawmsg *p_rawmsg2 = new SensorRawmsg;
-    DataWriter wt;
-    wt.addSensorRawmsgPtr(0, p_rawmsg1);
-    wt.addSensorRawmsgPtr(1, p_rawmsg2);
-    DataReader rd1(p_rawmsg1);
-    DataReader rd2(p_rawmsg2);
+    StuInfoContainer info;
+    info.addStuInfo(Student(1,"535cw"));
+    info.addStuInfo(Student(12,"c53w"));
+    info.addStuInfo(Student(13,"c535w"));
+    info.addStuInfo(Student(1452,"c434w"));
+    info.addStuInfo(Student(1324,"cww"));
 
-    wt.startThreadFunc();
-    rd1.startThreadFunc();
-    rd2.startThreadFunc();
+    info.showStuInfo();
+    
+    
 
-    while(1)
-    {
-        this_thread::sleep_for(5s);
-    }
 
 
 
