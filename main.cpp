@@ -4,33 +4,26 @@
  * @Author: CWSY
  * @Date: 2020-11-14 11:41:38
  * @LastEditors: sueRimn
- * @LastEditTime: 2021-02-03 22:47:31
+ * @LastEditTime: 2021-02-17 18:45:06
  */
+#include <iostream>
+#include "design_pattern_24.h"
 
-#include "friend_class.h"
-
+using namespace std;
 
 
 int main()
-{   
-    StuInfoContainer info;
-    info.addStuInfo(Student(1,"535cw"));
-    info.addStuInfo(Student(12,"c53w"));
-    info.addStuInfo(Student(13,"c535w"));
-    info.addStuInfo(Student(1452,"c434w"));
-    info.addStuInfo(Student(1324,"cww"));
+{
+	Request r1("qingjia2", "1tianjia", 33);
+	Manager* m1 = new NormalManager("cwsy");
+	Manager* m2 = new MajorDomo("renfan");
+	Manager* m3 = new GeneralManager("liangfenghua");
 
-    info.showStuInfo();
-    
-    
+	m1->setSuperiorManager(m2);
+	m2->setSuperiorManager(m3);
 
-
-
-
-    return 0;
+	m1->dealRequest(r1);
 }
-
-
 
 
 
